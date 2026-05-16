@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Policy — Shlaka Factory</title>
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="64x64" href="favicon-64.png">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<style>
+  body { max-width: 760px; margin: 40px auto; padding: 0 24px;
+         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+         color: #222; line-height: 1.6; font-size: 16px; }
+  h1 { font-size: 28px; margin-bottom: 8px; }
+  h2 { font-size: 20px; margin-top: 32px; }
+  .meta { color: #777; font-size: 14px; margin-bottom: 32px; }
+  code { background: #f4f4f6; padding: 2px 6px; border-radius: 3px; font-size: 14px; }
+  a { color: #0066cc; }
+  .app-header { display: flex; align-items: center; gap: 16px; margin-bottom: 8px; }
+  .app-header img { width: 64px; height: 64px; border-radius: 12px; }
+  .app-header h1 { margin: 0; }
+</style>
+</head>
+<body>
+
+<div class="app-header">
+  <img src="icon-192.png" alt="Shlaka Factory app icon" width="64" height="64">
+  <h1>Privacy Policy — Shlaka Factory</h1>
+</div>
+<p class="meta">Last updated: 2026-05-17. App name: <strong>Shlaka Factory</strong>. Contact: adasha97816@gmail.com.</p>
+
+<p>This Privacy Policy describes how <strong>Shlaka Factory</strong> (the
+"app", "we", "our") handles data when a creator uses the app to produce
+short-form vertical videos on their own machine and post them to their
+own TikTok account(s). The same operator runs two content-vertical
+TikTok handles — <strong>@red_team_analysis</strong> and
+<strong>@redteamanalysis</strong> — under a single legal entity; this
+policy applies identically to both.</p>
+
+<h2>1. Who this policy is for</h2>
+<p>Shlaka Factory is a desktop tool used by short-form video creators
+working in educational niches (personal finance, career advice, applied
+science, productivity). The app runs locally on the creator's own
+computer. This policy applies to any creator who connects their TikTok
+account to Shlaka Factory.</p>
+
+<h2>2. Data Shlaka Factory accesses from TikTok</h2>
+<p>When a creator connects their TikTok account to Shlaka Factory, the
+app requests two TikTok API permissions:</p>
+<ul>
+  <li><code>user.info.basic</code> — used to fetch the creator's
+    <code>open_id</code>, <code>display_name</code>, and
+    <code>avatar_url</code>. Shlaka Factory shows the display name and
+    avatar in its connection panel ("Connected as @handle") so the
+    creator can verify they are about to publish to the correct
+    account before clicking upload.</li>
+  <li><code>video.publish</code> — used so that when the creator
+    explicitly clicks the upload button, Shlaka Factory can publish
+    the finished mp4 file directly to the creator's TikTok account via
+    the Content Posting API Direct Post endpoint
+    (<code>/v2/post/publish/video/init/</code>), using the
+    creator-chosen caption and privacy level supplied in the same UI.</li>
+</ul>
+
+<h2>3. Data Shlaka Factory does NOT access</h2>
+<p>Shlaka Factory does not request and does not access:</p>
+<ul>
+  <li>The creator's existing videos on TikTok.</li>
+  <li>The creator's followers, follows, or any social graph data.</li>
+  <li>The creator's direct messages, comments, or notifications.</li>
+  <li>Any analytics or insights on the creator's TikTok account.</li>
+  <li>Any TikTok user other than the connected creator.</li>
+</ul>
+
+<h2>4. Where data is stored</h2>
+<p>Shlaka Factory runs entirely on the creator's own machine. The
+authentication tokens TikTok issues during OAuth are stored in a local
+JSON file (<code>.tiktok_tokens.json</code>) on the creator's machine.
+This file is never transmitted to any third-party server operated by
+us. The creator's display name and avatar shown in the app are read
+from TikTok at session start and held only in process memory during
+the session.</p>
+<p>Tokens persist on the local machine only and expire on TikTok's
+schedule (typically 24 hours for access tokens, 365 days for refresh
+tokens). We operate no server-side credential store: there is no cloud
+database, no backup of tokens, and no remote copy of any creator's
+OAuth material.</p>
+
+<h2>5. Where the video goes</h2>
+<p>When the creator clicks upload, the video file is uploaded directly
+from the creator's machine to TikTok's Content Posting API endpoint.
+Shlaka Factory does not host, proxy, or store the video on any
+intermediate server. The upload uses the Direct Post flow: the app
+calls <code>/v2/post/publish/video/init/</code> with the
+creator-supplied caption and <code>privacy_level</code>, and TikTok
+publishes the video directly to the creator's feed.</p>
+
+<h2>6. Third parties</h2>
+<p>Shlaka Factory does not share TikTok user data with any third party.
+Shlaka Factory does not sell, rent, or trade any data. The app does
+not embed advertising SDKs and does not run analytics on TikTok
+content.</p>
+
+<h2>7. Children</h2>
+<p>Shlaka Factory is not directed to children under 13. Creators using
+the app must be of the minimum age required by TikTok's own Terms of
+Service in their jurisdiction.</p>
+
+<h2>8. Data retention and deletion</h2>
+<p>A creator can disconnect their TikTok account at any time by
+deleting the local <code>.tiktok_tokens.json</code> file or by
+revoking Shlaka Factory inside the TikTok app under Settings →
+Security and login → Manage apps. Once revoked, the app can no longer
+fetch user info or upload videos until the creator goes through the
+OAuth consent flow again.</p>
+
+<h2>9. Changes to this policy</h2>
+<p>If we make material changes to this policy we will update the
+"Last updated" date at the top. Continued use of Shlaka Factory after
+an update constitutes acceptance of the updated policy.</p>
+
+<h2>10. Your rights under GDPR and CCPA</h2>
+<p>Shlaka Factory processes a minimal amount of personal data
+(<code>open_id</code>, <code>display_name</code>, <code>avatar_url</code>,
+and OAuth tokens) on the creator's own machine. The lawful bases under
+the EU/UK GDPR are (a) the creator's explicit consent given during the
+TikTok OAuth flow and (b) our legitimate interest in operating the
+OAuth handshake that connects the app to TikTok.</p>
+<p>EU, EEA, and UK creators have the rights set out in GDPR Articles 15
+to 17 — access, rectification, and erasure — as well as Article 20
+portability. Because no data leaves the creator's machine, access is
+exercised by reading the local <code>.tiktok_tokens.json</code> file
+and the in-app connection panel, and erasure is exercised by deleting
+that file and revoking the app inside TikTok (see Section 8).</p>
+<p>California residents: under the CCPA, <strong>we do not sell or
+share personal information</strong>, and we do not use it for
+cross-context behavioral advertising. EU/EEA/UK data subject and
+CCPA requests can be sent to
+<a href="mailto:adasha97816@gmail.com">adasha97816@gmail.com</a>.</p>
+
+<h2>11. Contact</h2>
+<p>For questions about this Privacy Policy or about
+<strong>Shlaka Factory</strong>'s handling of TikTok data, contact
+<a href="mailto:adasha97816@gmail.com">adasha97816@gmail.com</a>.</p>
+
+</body>
+</html>

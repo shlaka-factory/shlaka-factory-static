@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shlaka Factory</title>
+<meta name="description" content="Shlaka Factory — desktop app for short-form video creators to produce 9:16 vertical shorts and publish to TikTok.">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="64x64" href="favicon-64.png">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<style>
+  :root {
+    --bg: #0a0a0c;
+    --panel: #16161a;
+    --text: #f3f3f5;
+    --muted: #8a8a93;
+    --accent: #25f4ee;
+    --accent-2: #fe2c55;
+    --border: #2a2a31;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    line-height: 1.6; }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 64px 24px; }
+  .logo {
+    display: inline-block; padding: 8px 16px; border-radius: 6px;
+    background: var(--panel); border: 1px solid var(--border);
+    font-family: ui-monospace, SFMono-Regular, "SF Mono", monospace;
+    font-size: 14px; letter-spacing: 2px;
+  }
+  .logo .accent { color: var(--accent); }
+  .logo .accent2 { color: var(--accent-2); }
+  .app-header { display: flex; align-items: center; gap: 20px; margin-top: 32px; }
+  .app-header img { width: 96px; height: 96px; border-radius: 18px; }
+  .app-header .titles { display: flex; flex-direction: column; gap: 4px; }
+  .app-header h1 { margin: 0; }
+  .app-header .tagline { margin: 0; }
+  h1 { font-size: 40px; margin: 24px 0 8px; letter-spacing: -0.5px; }
+  h1 .accent { color: var(--accent); }
+  .tagline { color: var(--muted); font-size: 18px; margin: 0 0 40px; }
+  h2 { font-size: 22px; margin-top: 40px; border-bottom: 1px solid var(--border); padding-bottom: 8px; }
+  p { color: var(--text); }
+  ul { color: var(--text); }
+  li { margin: 6px 0; }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .footer-links {
+    margin-top: 64px; padding-top: 24px; border-top: 1px solid var(--border);
+    color: var(--muted); font-size: 14px;
+  }
+  .footer-links a { color: var(--muted); margin-right: 16px; }
+  code {
+    background: var(--panel); padding: 2px 6px; border-radius: 3px;
+    font-family: ui-monospace, SFMono-Regular, "SF Mono", monospace;
+    font-size: 13px; color: var(--accent);
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="logo"><span class="accent">RT</span> <span class="accent2">/</span> ANALYSIS</div>
+
+  <div class="app-header">
+    <img src="icon-192.png" alt="Shlaka Factory app icon" width="96" height="96">
+    <div class="titles">
+      <h1><span class="accent">Shlaka</span> Factory</h1>
+      <p class="tagline">A desktop app for short-form video creators.</p>
+    </div>
+  </div>
+
+  <h2>What it does</h2>
+  <p>Shlaka Factory is a desktop application that solo content creators
+  and small creator teams install on their own computer to produce 9:16
+  vertical short videos and publish them to their TikTok accounts.</p>
+
+  <p>The target audience is independent short-form creators working in
+  educational niches — personal finance explainers, career advice
+  channels, applied-science creators, productivity coaches — who need a
+  local, install-once workflow instead of a multi-tool browser pipeline.</p>
+
+  <h2>How TikTok integration works</h2>
+  <ul>
+    <li>The creator connects their TikTok account via TikTok Login Kit.</li>
+    <li>The app shows the creator's display name and avatar in a
+      "Connected as @handle" panel so the creator can confirm the right
+      account before any upload.</li>
+    <li>When the creator approves the finished video, the app calls the
+      Content Posting API Direct Post endpoint
+      (<code>/v2/post/publish/video/init/</code>) with the
+      creator-chosen caption, <code>privacy_level</code>, and engagement
+      flags. The video posts directly to the creator's TikTok feed at
+      the creator-selected privacy level.</li>
+    <li>The app never auto-posts, never schedules, never reads existing
+      TikTok content.</li>
+  </ul>
+  <p>The same operator runs two content-vertical TikTok handles —
+  <strong>@red_team_analysis</strong> and <strong>@redteamanalysis</strong>
+  — under a single legal entity; the second handle is reserved for a
+  separate content vertical. The app posts to both accounts using the
+  same Direct Post flow described above.</p>
+
+  <h2>Scopes requested</h2>
+  <ul>
+    <li><code>user.info.basic</code> — display the creator's handle in
+      the connection panel.</li>
+    <li><code>video.publish</code> — publish the finished mp4 directly
+      to the creator's TikTok feed via the Content Posting API Direct
+      Post endpoint, using the creator-selected privacy level.</li>
+  </ul>
+
+  <h2>Contact</h2>
+  <p>Questions about Shlaka Factory:
+    <a href="mailto:adasha97816@gmail.com">adasha97816@gmail.com</a></p>
+
+  <div class="footer-links">
+    <a href="/privacy.html">Privacy Policy</a>
+    <a href="/terms.html">Terms of Service</a>
+    <a href="mailto:adasha97816@gmail.com">Contact</a>
+  </div>
+
+</div>
+</body>
+</html>
